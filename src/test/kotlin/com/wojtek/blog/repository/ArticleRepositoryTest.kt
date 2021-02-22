@@ -6,9 +6,11 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager
+import org.springframework.test.context.TestPropertySource
 import java.time.LocalDateTime
 
 @DataJpaTest
+@TestPropertySource(properties = ["spring.datasource.initialization-mode=never"])
 class ArticleRepositoryTest @Autowired constructor(
     val entityManager: TestEntityManager,
     val articleRepository: ArticleRepository
@@ -16,7 +18,7 @@ class ArticleRepositoryTest @Autowired constructor(
 
     @Test
     fun `Find all articles`() {
-        val added = LocalDateTime.now();
+        val added = LocalDateTime.now()
 
         val article1 = Article("Title 1", "Headline 1", "Content 1", added.minusDays(1))
         val article2 = Article("Title 2", "Headline 2", "Content 2", added.minusDays(2))
