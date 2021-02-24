@@ -22,6 +22,7 @@ class HtmlController(private val articleRepository: ArticleRepository) {
         title,
         headline,
         content,
+        author = "${author.firstName} ${author.lastName}",
         added.format()
     )
 
@@ -29,6 +30,7 @@ class HtmlController(private val articleRepository: ArticleRepository) {
         var title: String,
         var headline: String,
         var content: String,
+        var author: String,
         var added: String,
     )
 }
