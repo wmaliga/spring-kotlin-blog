@@ -12,13 +12,22 @@ a {
     width: 100%;
 }
 
-.article-container {
+.article-tile {
     float: left;
     border: 1px solid lightgray;
     border-radius: 10px;
     margin: 20px;
     padding: 0;
     width: 20%;
+}
+
+.article-container {
+    float: left;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 0;
+    width: 100%;
 }
 
 .article-title {

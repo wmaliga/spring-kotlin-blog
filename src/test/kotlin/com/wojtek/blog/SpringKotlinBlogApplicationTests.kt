@@ -18,4 +18,12 @@ class SpringKotlinBlogApplicationTests(@Autowired val restTemplate: TestRestTemp
         assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
         assertThat(entity.body).contains("Blog")
     }
+
+    @Test
+    fun `Assert article page loaded`() {
+        val entity = restTemplate.getForEntity<String>("/article/pieski-kotki")
+
+        assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
+        assertThat(entity.body).contains("Pieski kotki")
+    }
 }
