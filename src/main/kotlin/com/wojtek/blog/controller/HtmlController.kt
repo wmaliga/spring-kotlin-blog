@@ -23,7 +23,8 @@ class HtmlController(private val articleRepository: ArticleRepository) {
         headline,
         content,
         author = "${author.firstName} ${author.lastName}",
-        added.format()
+        added.format(),
+        slug
     )
 
     data class ArticleRender(
@@ -32,5 +33,6 @@ class HtmlController(private val articleRepository: ArticleRepository) {
         var content: String,
         var author: String,
         var added: String,
+        var slug: String,
     )
 }
