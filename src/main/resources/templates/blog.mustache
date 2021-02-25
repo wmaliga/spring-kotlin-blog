@@ -4,15 +4,15 @@
 
 <div class="articles">
     {{#articles}}
-        <section>
+        <div class="article-container">
             <header class="article-header">
-                <h2 class="article-title">{{title}}</h2>
+                <div class="article-title">{{title}}</div>
                 <div class="article-meta">By <strong>{{author}}</strong>, on <strong>{{added}}</strong></div>
             </header>
             <div class="article-description">
                 {{headline}}
             </div>
-        </section>
+        </div>
     {{/articles}}
 </div>
 
