@@ -1,5 +1,6 @@
 package com.wojtek.blog.controller
 
+import com.wojtek.blog.configuration.BlogProperties
 import com.wojtek.blog.entity.Article
 import com.wojtek.blog.extensions.format
 import com.wojtek.blog.repository.ArticleRepository
@@ -12,11 +13,15 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.server.ResponseStatusException
 
 @Controller
-class HtmlController(private val articleRepository: ArticleRepository) {
+class HtmlController(
+    private val blogProperties: BlogProperties,
+    private val articleRepository: ArticleRepository
+    ) {
 
     @GetMapping("/")
     fun blog(model: Model): String {
-        model["title"] = "Blog"
+        model["title"] = blogProperties.title
+        model["banner"] = blogProperties.banner
         model["articles"] = this.articleRepository.findAllByOrderByAddedDesc().map { it.render() }
         return "blog"
     }
